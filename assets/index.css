@@ -1,0 +1,217 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  background-color: teal;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+  border: px solid silver;
+  position: relative;
+}
+
+header picture, header picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+header .vis {
+  translate: 0;
+}
+
+header nav {
+  border: 1px solid grey;
+  background-color: lightseagreen;
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem 2vmax;
+  translate: -100% 0;
+}
+
+@media (min-width: 1080px) {
+  header nav {
+    background-color: initial;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    height: auto;
+    translate: 0;
+  }
+}
+
+header nav #logo {
+  width: 10vmax;
+}
+
+header nav ul {
+  border: px solid orange;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+@media (min-width: 1080px) {
+  header nav ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+header nav ul li {
+  display: block;
+}
+
+header nav ul li a {
+  border: 1px solid grey;
+  display: block;
+  padding: .5rem 0;
+}
+
+@media (min-width: 1080px) {
+  header nav ul li a {
+    padding: .5rem 2rem;
+  }
+}
+
+header #ham {
+  border: px solid grey;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  overflow: visible;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: .2s ease-out .1s;
+  transition: .2s ease-out .1s;
+}
+
+@media (min-width: 1080px) {
+  header #ham {
+    display: none;
+  }
+}
+
+header #ham #checkbox {
+  z-index: 3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+header #ham .ham_line, header #ham .ham_line:before, header #ham .ham_line:after {
+  z-index: 2;
+  height: 0.2rem;
+  background-color: #000;
+  border-radius: 10px;
+}
+
+header #ham .ham_line {
+  position: relative;
+  width: 100%;
+  -webkit-transition: background-color .2s ease-in .01s, width .2s ease-in .14s;
+  transition: background-color .2s ease-in .01s, width .2s ease-in .14s;
+}
+
+header #ham .ham_line:before, header #ham .ham_line:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+header #ham .ham_line:before {
+  top: -10px;
+  -webkit-transition: .31s;
+  transition: .31s;
+}
+
+header #ham .ham_line:after {
+  top: 10px;
+  -webkit-transition: .28s ease-out .03s;
+  transition: .28s ease-out .03s;
+}
+
+header #ham input:checked ~ .ham_line::before, header #ham input:checked ~ .ham_line::after {
+  top: 0;
+}
+
+header #ham input:checked ~ .ham_line {
+  width: 88%;
+  background-color: transparent;
+  -webkit-transition: background-color .2s, width .3s .05s;
+  transition: background-color .2s, width .3s .05s;
+}
+
+header #ham input:checked ~ .ham_line::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+header #ham input:checked ~ .ham_line::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+main {
+  display: block;
+  height: 200vh;
+  background-color: teal;
+}

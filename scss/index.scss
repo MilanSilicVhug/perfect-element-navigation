@@ -1,0 +1,127 @@
+*{box-sizing:border-box; margin:0; padding:0;}ul{list-style:none;}a{font-size:1.25rem; text-decoration:none; color:#000;}
+body{background-color: teal; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+
+header {border: px solid silver;
+    position: relative;
+
+    picture, picture img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .vis {translate: 0;}
+    nav {border: 1px solid grey; 
+        background-color: lightseagreen;
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        height: 100vh;
+        padding: 1rem 2vmax;
+        translate: -100% 0;
+        @media (min-width: 1080px) {
+            background-color: initial;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            height: auto;
+            translate: 0;
+        }
+
+        #logo {width: 10vmax;}
+
+        ul {border: px solid orange;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            @media (min-width: 1080px) {
+                flex-direction: row;
+            }
+
+            li {
+                display: block;    
+                a {border: 1px solid grey;
+                    display: block;
+                    padding: .5rem 0;
+                    @media (min-width: 1080px) {
+                        padding: .5rem 2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #ham {border: px solid grey;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.7rem;
+        height: 1.7rem;
+        overflow: visible;
+        transform: translate(0, 0);
+        transition: .2s ease-out .1s;
+        @media (min-width: 1080px) {
+            display: none;
+        }
+
+        #checkbox {
+            z-index: 3;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .ham_line, .ham_line:before, .ham_line:after {
+            z-index: 2;
+            height: 0.2rem;
+            background-color: #000;
+            border-radius: 10px;
+        }
+        .ham_line {
+            position: relative;
+            width: 100%;
+            -webkit-transition: background-color .2s ease-in .01s, width .2s ease-in .14s;
+            transition: background-color .2s ease-in .01s, width .2s ease-in .14s;
+        }
+        .ham_line:before, .ham_line:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            width: 100%;
+        }
+        .ham_line:before {
+            top: -10px;
+            -webkit-transition: .31s;
+            transition: .31s;
+        }
+        .ham_line:after {
+            top: 10px;
+            -webkit-transition: .28s ease-out .03s;
+            transition: .28s ease-out .03s;
+        }
+
+        input:checked ~ .ham_line::before, input:checked ~ .ham_line::after {top: 0;}
+        input:checked ~ .ham_line {
+            width: 88%;
+            background-color: transparent;
+            transition: background-color .2s, width .3s .05s;
+        }
+        input:checked ~ .ham_line::before {transform: rotate(45deg);}
+        input:checked ~ .ham_line::after {transform: rotate(-45deg);}
+    }
+}
+
+main {
+    display: block;
+    height: 200vh;
+    background-color: teal;
+}
